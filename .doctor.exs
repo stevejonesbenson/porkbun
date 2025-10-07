@@ -1,0 +1,13 @@
+%{
+  exception_moduledoc_required: false,
+  failed: false,
+  min_module_doc_coverage: 0,
+  min_module_spec_coverage: 0,
+  min_overall_doc_coverage: 0,
+  min_overall_spec_coverage: 0,
+  min_overall_moduledoc_coverage: 0,
+  raise: false,
+  reporter: Doctor.Reporters.Short,
+  struct_type_spec_required: false,
+  umbrella: false
+}
