@@ -47,7 +47,7 @@ defmodule Porkbun.MixProject do
       licenses: ["MIT"],
       maintainers: ["Stevejones Benson"],
       files: ~w(lib .formatter.exs mix.exs README.md CHANGELOG.md ),
-      org: "hexpm"
+      organization: "hexpm"
     ]
   end
 end
