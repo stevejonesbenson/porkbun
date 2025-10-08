@@ -23,6 +23,10 @@ defmodule Porkbun.MixProject do
     ]
   end
 
+  def test_coverage do
+    [tool: ExCoveralls, token: "Ute1yYEWvt"]
+  end
+
   def deps do
     [
       {:req, "~> 0.5"},

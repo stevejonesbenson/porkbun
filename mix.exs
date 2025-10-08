@@ -57,7 +57,7 @@ defmodule Elixir.Porkbun.MixProject do
       scm: {:github, "stevejonesbenson", "porkbun"},
       source_url: "https://github.com/stevejonesbenson/porkbun",
       start_permanent: true,
-      test_coverage: [tool: ExCoveralls],
+      test_coverage: [token: "Ute1yYEWvt", tool: ExCoveralls],
       type: :library,
       version: "0.1.0",
       visibility: :public
