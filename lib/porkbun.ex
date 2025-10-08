@@ -133,8 +133,11 @@ defmodule Porkbun do
     url
     |> String.split("/", trim: true)
     |> Enum.filter(&String.starts_with?(&1, ":"))
-    |> Enum.map(&String.trim_leading(&1, ":"))
-    |> Enum.map(&String.to_atom/1)
+    |> Enum.map(
+      &(&1
+        |> String.trim_leading(":")
+        |> String.to_atom())
+    )
   end
 
   @doc false

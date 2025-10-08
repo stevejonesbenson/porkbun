@@ -115,14 +115,14 @@ defmodule Porkbun.Types.Content do
   # Helper validation functions
   defp valid_weight?(weight) do
     case Integer.parse(weight) do
-      {int_val, ""} when int_val >= 0 and int_val <= 65535 -> true
+      {int_val, ""} when int_val >= 0 and int_val <= 65_535 -> true
       _ -> false
     end
   end
 
   defp valid_port?(port) do
     case Integer.parse(port) do
-      {int_val, ""} when int_val >= 1 and int_val <= 65535 -> true
+      {int_val, ""} when int_val >= 1 and int_val <= 65_535 -> true
       _ -> false
     end
   end

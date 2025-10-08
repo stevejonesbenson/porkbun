@@ -21,7 +21,7 @@ defmodule Porkbun.Types.KeyTag do
     end
   end
 
-  def cast(value) when is_integer(value) and value >= 0 and value <= 65535 do
+  def cast(value) when is_integer(value) and value >= 0 and value <= 65_535 do
     {:ok, Integer.to_string(value)}
   end
 
@@ -60,7 +60,7 @@ defmodule Porkbun.Types.KeyTag do
   """
   def valid?(key_tag) when is_binary(key_tag) do
     case Integer.parse(key_tag) do
-      {int_val, ""} when int_val >= 0 and int_val <= 65535 -> true
+      {int_val, ""} when int_val >= 0 and int_val <= 65_535 -> true
       _ -> false
     end
   end
