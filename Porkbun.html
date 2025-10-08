@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="ExDoc v0.38.4">
+    <meta name="project" content="Porkbun v0.1.0-dev">
+
+
+    <title>Porkbun — Porkbun v0.1.0-dev</title>
+
+      <link rel="icon" href="assets/favicon.svg" />
+
+    <link rel="stylesheet" href="dist/html-elixir-RLZO5U2C.css" />
+
+    <script defer src="dist/sidebar_items-3AB70D22.js"></script>
+    <script defer src="docs_config.js"></script>
+    <script defer src="dist/html-Y223O6DN.js"></script>
+
+  </head>
+  <body>
+    <script>(()=>{var t="ex_doc:settings",e="dark";var o="dark",s="light";var E="sidebar_state",n="closed";var r="sidebar_width";var a="sidebar-open";var i=new URLSearchParams(window.location.search),S=i.get("theme")||JSON.parse(localStorage.getItem(t)||"{}").theme;(S===o||S!==s&&window.matchMedia("(prefers-color-scheme: dark)").matches)&&document.body.classList.add(e);var d=sessionStorage.getItem(E),A=d!==n&&!window.matchMedia(`screen and (max-width: ${768}px)`).matches;document.body.classList.toggle(a,A);var c=sessionStorage.getItem(r);c&&document.body.style.setProperty("--sidebarWidth",`${c}px`);var p=/(Macintosh|iPhone|iPad|iPod)/.test(window.navigator.userAgent);document.documentElement.classList.toggle("apple-os",p);})();
+</script>
+
+<div class="body-wrapper">
+
+<button id="sidebar-menu" class="sidebar-button sidebar-toggle" aria-label="toggle sidebar" aria-controls="sidebar">
+  <i class="ri-menu-line ri-lg" title="Collapse/expand sidebar"></i>
+</button>
+
+<nav id="sidebar" class="sidebar">
+
+  <div class="sidebar-header">
+    <div class="sidebar-projectInfo">
+
+        <a href="Porkbun.html" class="sidebar-projectImage">
+          <img src="assets/logo.png" alt="Porkbun" />
+        </a>
+
+      <div>
+        <a href="Porkbun.html" class="sidebar-projectName" translate="no">
+Porkbun
+        </a>
+        <div class="sidebar-projectVersion" translate="no">
+          v0.1.0-dev
+        </div>
+      </div>
+    </div>
+    <ul id="sidebar-list-nav" class="sidebar-list-nav" role="tablist" data-extras="pages"></ul>
+  </div>
+</nav>
+
+<output role="status" id="toast"></output>
+
+<main class="content page-module" id="main" data-type="modules">
+  <div id="content" class="content-inner">
+    <div class="top-search">
+      <div class="search-settings">
+        <form class="search-bar" action="search.html">
+          <label class="search-label">
+            <span class="sr-only">Search documentation of Porkbun</span>
+            <input name="q" type="text" class="search-input" placeholder="Press / to search" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" />
+          </label>
+          <button type="submit" class="search-button" aria-label="Submit Search" tabindex="-1">
+            <i class="ri-search-2-line ri-lg" aria-hidden="true"></i>
+          </button>
+          <button type="button" tabindex="-1" class="search-close-button" aria-hidden="true">
+            <i class="ri-close-line ri-lg" title="Cancel search"></i>
+          </button>
+        </form>
+        <div class="autocomplete">
+        </div>
+        <button class="icon-settings display-settings">
+          <i class="ri-settings-3-line"></i>
+          <span class="sr-only">Settings</span>
+        </button>
+      </div>
+    </div>
+
+<div id="top-content">
+  <div class="heading-with-actions top-heading">
+    <h1>
+      <span translate="no">Porkbun</span> 
+      <small class="app-vsn" translate="no">(Porkbun v0.1.0-dev)</small>
+
+    </h1>
+
+      <a href="https://github.com/stevejonesbenson/porkbun/blob/d33a512/lib/porkbun.ex#L1" title="View Source" class="icon-action" rel="help">
+        <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        <span class="sr-only">View Source</span>
+      </a>
+
+  </div>
+
+
+    <section id="moduledoc">
+<p>Porkbun API Client.</p><p align="center"></p><p align="center">  <em><strong><small>Porkbun // </small></strong></em><br/>
+   <span style="color: #ff6188;">乾</span>史蒂夫和朋友<br/>
+  <em><strong><small>Elixir client for the Porkbun API<br/></small></strong></em></p><p align="center">  <a href="https://hexdocs.pm/elixir/1.18.4/Kernel.html">
+    <img alt="Elixir 1.18.4" src="https://img.shields.io/badge/1.18.4-fbf5f3?&logo=elixir&logoColor=696eff&color=fbf5f3" >
+  </a>
+  <a href="https://www.erlang.org/docs">
+    <img alt="Erlang 28.0.2" src="https://img.shields.io/badge/28.0.2-4B275F?&logo=erlang&logoColor=a90432&color=fbf5f3" >
+  </a></p><p align="center">  <a href="https://github.com/stevejonesbenson/porkbun/tree/master">
+  <img alt="GitHub"  src="https://img.shields.io/badge/package-0.1.0--dev-FFD21E?logo=github&logoColor=white" >
+</a><a href="https://stevejonesbenson.github.io/porkbun/">  <img alt="GitHub Pages Docs"  src="https://img.shields.io/badge/docs-0.1.0--dev-FFD21E?logo=github&logoColor=white" ></a><a href="https://github.com/stevejonesbenson/porkbun">  <img alt="GitHub" src="https://img.shields.io/badge/stevejonesbenson-porkbun-fbf5f3.svg?logo=github" ></a> <img alt="Type Library" src="https://img.shields.io/badge/apm-Library-ff6188.svg?logo=bugatti" >
+</p><p align="center">
+<p>  <a href="https://codecov.io/gh/stevejonesbenson/porkbun">
+    <img alt="Coverage" src="https://codecov.io/gh/stevejonesbenson/porkbun/branch/master/graphs/icicle.svg?token=">
+  </a></p></p><!--  Text below will be included in the README.md and excluded from the main moduledoc -->
+    </section>
+
+</div>
+
+  <section id="summary" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#summary">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Summary</span>
+    </h1>
+<div class="summary-functions summary">
+  <h2>
+    <a href="#functions">Functions</a>
+  </h2>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#client/1" data-no-tooltip="" translate="no">client(opts \\ [])</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Creates a Porkbun client struct.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#ping/1" data-no-tooltip="" translate="no">ping(client \\ nil)</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Pings the Porkbun API to check connectivity.</p></div>
+
+    </div>
+
+    <div class="summary-row">
+      <div class="summary-signature">
+        <a href="#pricing/0" data-no-tooltip="" translate="no">pricing()</a>
+
+      </div>
+
+        <div class="summary-synopsis"><p>Gets the current pricing from Porkbun.</p></div>
+
+    </div>
+
+</div>
+
+  </section>
+
+
+  <section id="functions" class="details-list">
+    <h1 class="section-heading">
+      <a class="hover-link" href="#functions">
+        <i class="ri-link-m" aria-hidden="true"></i>
+      </a>
+      <span class="text">Functions</span>
+    </h1>
+
+    <div class="functions-list">
+<section class="detail" id="client/1">
+
+    <span id="client/0"></span>
+
+  <div class="detail-header">
+    <a href="#client/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">client(opts \\ [])</h1>
+
+
+        <a href="https://github.com/stevejonesbenson/porkbun/blob/d33a512/lib/porkbun.ex#L59" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Creates a Porkbun client struct.</p><h2 id="client/1-options" class="section-heading"><a href="#client/1-options" class="hover-link"><i class="ri-link-m" aria-hidden="true"></i></a><span class="text">Options</span></h2><ul><li><code class="inline">:api_key</code> - Your Porkbun API key. Defaults to the <code class="inline">PORKBUN_API</code> environment variable.</li><li><code class="inline">:secret_key</code> - Your Porkbun secret key. Defaults to the <code class="inline">PORKBUN_SECRET</code> environment variable.</li></ul>
+  </section>
+</section>
+<section class="detail" id="ping/1">
+
+    <span id="ping/0"></span>
+
+  <div class="detail-header">
+    <a href="#ping/1" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">ping(client \\ nil)</h1>
+
+
+        <a href="https://github.com/stevejonesbenson/porkbun/blob/d33a512/lib/porkbun.ex#L40" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Pings the Porkbun API to check connectivity.</p>
+  </section>
+</section>
+<section class="detail" id="pricing/0">
+
+  <div class="detail-header">
+    <a href="#pricing/0" class="detail-link" data-no-tooltip="" aria-label="Link to this function">
+      <i class="ri-link-m" aria-hidden="true"></i>
+    </a>
+    <div class="heading-with-actions">
+      <h1 class="signature" translate="no">pricing()</h1>
+
+
+        <a href="https://github.com/stevejonesbenson/porkbun/blob/d33a512/lib/porkbun.ex#L33" class="icon-action" rel="help" aria-label="View Source">
+          <i class="ri-code-s-slash-line" aria-hidden="true"></i>
+        </a>
+
+    </div>
+  </div>
+
+  <section class="docstring">
+
+<p>Gets the current pricing from Porkbun.</p>
+  </section>
+</section>
+
+    </div>
+  </section>
+
+    <footer class="footer">
+      <p>
+
+          <span class="line">
+            <a href="https://hex.pm/packages/porkbun/0.1.0-dev" class="footer-hex-package">Hex Package</a>
+
+            <a href="https://preview.hex.pm/preview/porkbun/0.1.0-dev">Hex Preview</a>
+
+          </span>
+
+        <span class="line">
+          <button class="a-main footer-button display-quick-switch" title="Search HexDocs packages">
+            Search HexDocs
+          </button>
+
+        </span>
+      </p>
+
+      <p class="built-using">
+        Built using
+        <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener" translate="no">ExDoc</a> (v0.38.4) for the
+
+          <a href="https://elixir-lang.org" title="Elixir" target="_blank" translate="no">Elixir programming language</a>
+
+      </p>
+
+    </footer>
+  </div>
+</main>
+</div>
+
+  </body>
+</html>
