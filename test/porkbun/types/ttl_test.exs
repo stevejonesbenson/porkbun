@@ -12,7 +12,7 @@ defmodule Porkbun.Types.TTLTest do
 
   describe "cast/1" do
     test "casts valid integers above minimum" do
-      valid_integers = [600, 700, 1000, 3600, 86400]
+      valid_integers = [600, 700, 1000, 3600, 86_400]
 
       for value <- valid_integers do
         assert {:ok, ^value} = TTL.cast(value)
@@ -57,7 +57,7 @@ defmodule Porkbun.Types.TTLTest do
       invalid_strings = ["not_a_number", "600.5", "abc", "", "600a", "a600", " 600 "]
 
       for value <- invalid_strings do
-        assert :error = TTL.cast(value)
+        assert {:error, _} = TTL.cast(value)
       end
     end
 
@@ -173,7 +173,7 @@ defmodule Porkbun.Types.TTLTest do
 
   describe "valid?/1" do
     test "returns true for valid integers above minimum" do
-      valid_values = [600, 700, 1000, 3600, 86400]
+      valid_values = [600, 700, 1000, 3600, 86_400]
 
       for value <- valid_values do
         assert TTL.valid?(value) == true
@@ -217,7 +217,7 @@ defmodule Porkbun.Types.TTLTest do
 
     test "large TTL values" do
       # 1 day, 1 week, 30 days
-      large_values = [86400, 604_800, 2_592_000]
+      large_values = [86_400, 604_800, 2_592_000]
 
       for value <- large_values do
         assert TTL.valid?(value) == true
