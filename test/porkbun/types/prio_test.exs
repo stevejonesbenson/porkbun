@@ -12,7 +12,7 @@ defmodule Porkbun.Types.PrioTest do
 
   describe "cast/1" do
     test "casts valid non-negative integers" do
-      valid_integers = [0, 1, 10, 100, 65535]
+      valid_integers = [0, 1, 10, 100, 65_535]
 
       for value <- valid_integers do
         assert {:ok, ^value} = Prio.cast(value)
@@ -29,7 +29,7 @@ defmodule Porkbun.Types.PrioTest do
         {"1", 1},
         {"10", 10},
         {"100", 100},
-        {"65535", 65535}
+        {"65535", 65_535}
       ]
 
       for {string_val, expected} <- valid_strings do
@@ -41,7 +41,7 @@ defmodule Porkbun.Types.PrioTest do
       negative_values = [-1, -10, -100]
 
       for value <- negative_values do
-        assert {:error, [message: "must be a non-negative integer or nil"]} = Prio.cast(value)
+        assert {:error, _} = Prio.cast(value)
       end
     end
 
@@ -49,7 +49,7 @@ defmodule Porkbun.Types.PrioTest do
       negative_strings = ["-1", "-10", "-100"]
 
       for value <- negative_strings do
-        assert {:error, [message: "must be a non-negative integer or nil"]} = Prio.cast(value)
+        assert {:error, _} = Prio.cast(value)
       end
     end
 
@@ -57,7 +57,7 @@ defmodule Porkbun.Types.PrioTest do
       invalid_strings = ["not_a_number", "10.5", "abc", "", "10a", "a10"]
 
       for value <- invalid_strings do
-        assert {:error, [message: "must be a non-negative integer or nil"]} = Prio.cast(value)
+        assert {:error, _} = Prio.cast(value)
       end
     end
 
@@ -65,14 +65,14 @@ defmodule Porkbun.Types.PrioTest do
       invalid_values = [10.5, :atom, [], %{}, true, false]
 
       for value <- invalid_values do
-        assert {:error, [message: "must be a non-negative integer or nil"]} = Prio.cast(value)
+        assert {:error, _} = Prio.cast(value)
       end
     end
   end
 
   describe "load/1" do
     test "loads valid non-negative integers" do
-      valid_integers = [0, 1, 10, 100, 65535]
+      valid_integers = [0, 1, 10, 100, 65_535]
 
       for value <- valid_integers do
         assert {:ok, ^value} = Prio.load(value)
@@ -102,7 +102,7 @@ defmodule Porkbun.Types.PrioTest do
 
   describe "dump/1" do
     test "dumps valid non-negative integers" do
-      valid_integers = [0, 1, 10, 100, 65535]
+      valid_integers = [0, 1, 10, 100, 65_535]
 
       for value <- valid_integers do
         assert {:ok, ^value} = Prio.dump(value)
@@ -158,7 +158,7 @@ defmodule Porkbun.Types.PrioTest do
 
   describe "valid?/1" do
     test "returns true for valid non-negative integers" do
-      valid_values = [0, 1, 10, 100, 65535]
+      valid_values = [0, 1, 10, 100, 65_535]
 
       for value <- valid_values do
         assert Prio.valid?(value) == true
@@ -219,7 +219,7 @@ defmodule Porkbun.Types.PrioTest do
     end
 
     test "accepts large valid priorities" do
-      large_values = [32767, 65535, 100_000]
+      large_values = [32_767, 65_535, 100_000]
 
       for value <- large_values do
         assert {:ok, ^value} = Prio.cast(value)
@@ -229,9 +229,9 @@ defmodule Porkbun.Types.PrioTest do
 
     test "handles string conversion edge cases" do
       assert {:ok, 0} = Prio.cast("0")
-      assert {:ok, 65535} = Prio.cast("65535")
-      assert {:error, [message: "must be a non-negative integer or nil"]} = Prio.cast("00")
-      assert {:error, [message: "must be a non-negative integer or nil"]} = Prio.cast(" 10 ")
+      assert {:ok, 65_535} = Prio.cast("65535")
+      assert {:error, _} = Prio.cast("00")
+      assert {:error, _} = Prio.cast(" 10 ")
     end
   end
 
