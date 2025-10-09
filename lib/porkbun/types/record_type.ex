@@ -38,6 +38,7 @@ defmodule Porkbun.Types.RecordType do
   # Cast from any case binary by normalizing to uppercase and checking
   def cast(value) when is_binary(value) do
     normalized = String.upcase(value)
+
     if normalized in @upcase_binary_types do
       {:ok, normalized}
     else
