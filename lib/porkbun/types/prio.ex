@@ -16,9 +16,14 @@ defmodule Porkbun.Types.Prio do
   def cast(nil), do: {:ok, nil}
 
   def cast(value) when is_binary(value) do
-    case Integer.parse(value) do
-      {int_value, ""} when int_value >= 0 -> {:ok, int_value}
-      _ -> {:error, [message: "must be a non-negative integer or nil"]}
+    # Reject strings with leading/trailing whitespace or leading zeros (except "0")
+    if String.trim(value) != value or (String.starts_with?(value, "0") and value != "0") do
+      {:error, [message: "must be a non-negative integer or nil"]}
+    else
+      case Integer.parse(value) do
+        {int_value, ""} when int_value >= 0 -> {:ok, int_value}
+        _ -> {:error, [message: "must be a non-negative integer or nil"]}
+      end
     end
   end
 
