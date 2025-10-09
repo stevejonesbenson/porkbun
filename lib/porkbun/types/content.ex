@@ -42,23 +42,23 @@ defmodule Porkbun.Types.Content do
   end
 
   def valid_for_type?(content, :cname) when is_binary(content),
-    do: Porkbun.Types.Name.valid?(content)
+    do: Porkbun.Types.Domain.valid?(content)
 
   def valid_for_type?(content, :alias) when is_binary(content),
-    do: Porkbun.Types.Name.valid?(content)
+    do: Porkbun.Types.Domain.valid?(content)
 
   def valid_for_type?(content, :mx) when is_binary(content),
-    do: Porkbun.Types.Name.valid?(content)
+    do: Porkbun.Types.Domain.valid?(content)
 
   def valid_for_type?(content, :ns) when is_binary(content),
-    do: Porkbun.Types.Name.valid?(content)
+    do: Porkbun.Types.Domain.valid?(content)
 
   def valid_for_type?(content, :srv) when is_binary(content) do
     # SRV format: "weight port target" (priority is separate field)
     # Example: "10 80 target.example.com"
     case String.split(content, " ", parts: 3) do
       [weight, port, target] ->
-        valid_weight?(weight) and valid_port?(port) and Porkbun.Types.Name.valid?(target)
+        valid_weight?(weight) and valid_port?(port) and Porkbun.Types.Domain.valid?(target)
 
       _ ->
         false
@@ -100,7 +100,7 @@ defmodule Porkbun.Types.Content do
     case parts do
       [target | _params] ->
         # Target can be "." for root or a valid domain name
-        target == "." or Porkbun.Types.Name.valid?(target)
+        target == "." or Porkbun.Types.Domain.valid?(target)
 
       [] ->
         false

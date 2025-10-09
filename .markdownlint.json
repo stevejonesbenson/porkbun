@@ -1,1 +1,10 @@
-{"MD004":"sublist","MD013":false,"MD014":false,"MD024":{"sibling_only":true},"MD033":{"allowed_elements":["h1","p","a","img","br","strong","source","picture","em","small"]},"MD041":false,"MD046":false,"MD047":false}
+{
+  "MD004": false,
+  "MD013": false,
+  "MD014": false,
+  "MD024": false,
+  "MD033": false,
+  "MD041": false,
+  "MD046": false,
+  "MD047": false
+}

@@ -13,6 +13,7 @@ defmodule Porkbun.Types.Name do
   def type, do: :string
 
   # Cast from binary - accept any string or nil, validate subdomain
+  def cast(""), do: {:ok, nil}
   def cast(value) when is_binary(value) do
     if valid?(value) do
       {:ok, value}
@@ -22,7 +23,6 @@ defmodule Porkbun.Types.Name do
   end
 
   def cast(nil), do: {:ok, nil}
-  def cast(""), do: {:ok, nil}
   def cast(_), do: {:error, [message: "must be a string"]}
 
   # Load from string - convert empty string to nil

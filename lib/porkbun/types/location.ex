@@ -45,6 +45,10 @@ defmodule Porkbun.Types.Location do
 
   defp valid_url?(url) do
     uri = URI.parse(url)
-    uri.scheme != nil and uri.host != nil and uri.scheme in ["http", "https"]
+    uri.scheme != nil and 
+    uri.host != nil and 
+    uri.scheme in ["http", "https"] and
+    String.length(uri.host) > 0 and
+    not String.contains?(uri.host, " ")
   end
 end

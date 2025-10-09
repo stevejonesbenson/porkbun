@@ -43,9 +43,14 @@ defmodule Porkbun.Types.IPAddress do
   Returns true if the IP is IPv4.
   """
   def ipv4?(ip) when is_binary(ip) do
-    case :inet.parse_ipv4_address(String.to_charlist(ip)) do
-      {:ok, _} -> true
-      {:error, _} -> false
+    # Basic format check first
+    if String.match?(ip, ~r/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/) do
+      case :inet.parse_ipv4_address(String.to_charlist(ip)) do
+        {:ok, _} -> true
+        {:error, _} -> false
+      end
+    else
+      false
     end
   end
 
@@ -53,9 +58,14 @@ defmodule Porkbun.Types.IPAddress do
   Returns true if the IP is IPv6.
   """
   def ipv6?(ip) when is_binary(ip) do
-    case :inet.parse_ipv6_address(String.to_charlist(ip)) do
-      {:ok, _} -> true
-      {:error, _} -> false
+    # Exclude IPv4 addresses from being considered valid IPv6
+    if not ipv4?(ip) do
+      case :inet.parse_ipv6_address(String.to_charlist(ip)) do
+        {:ok, _} -> true
+        {:error, _} -> false
+      end
+    else
+      false
     end
   end
 

@@ -35,6 +35,16 @@ defmodule Porkbun.Types.RecordType do
     {:ok, String.upcase(value)}
   end
 
+  # Cast from any case binary by normalizing to uppercase and checking
+  def cast(value) when is_binary(value) do
+    normalized = String.upcase(value)
+    if normalized in @upcase_binary_types do
+      {:ok, normalized}
+    else
+      {:error, [message: "must be one of: #{Enum.join(@upcase_binary_types, ", ")}"]}
+    end
+  end
+
   def cast(_), do: {:error, [message: "must be one of: #{Enum.join(@upcase_binary_types, ", ")}"]}
 
   # Load from string to uppercase binary
@@ -76,6 +86,6 @@ defmodule Porkbun.Types.RecordType do
   def equal?(_, _), do: false
 
   def types do
-    Enum.map(@types, &{String.to_atom(&1), &1})
+    Enum.map(@types, &{&1, Atom.to_string(&1)})
   end
 end
