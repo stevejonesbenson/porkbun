@@ -166,9 +166,22 @@ defmodule Porkbun do
     req_opts = [url: url, json: Map.merge(json_body, secrets)] ++ path_params ++ req_opts
 
     case Req.post!(req, req_opts).body do
-      %{"status" => "SUCCESS"} = resp_body -> {:ok, Map.drop(resp_body, ["status"])}
-      %{"status" => status, "message" => message} -> {:error, "#{status}: #{message}"}
-      other -> {:error, "Unexpected response: #{inspect(other)}"}
+      %{"status" => "SUCCESS"} = resp_body ->
+        resp =
+          resp_body
+          |> Map.drop(["status"])
+
+        if map_size(resp) == 0 do
+          :ok
+        else
+          {:ok, resp}
+        end
+
+      %{"status" => status, "message" => message} ->
+        {:error, "#{status}: #{message}"}
+
+      other ->
+        {:error, "Unexpected response: #{inspect(other)}"}
     end
   end
 
