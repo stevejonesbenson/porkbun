@@ -31,7 +31,16 @@ defmodule Porkbun do
   Gets the current pricing from Porkbun.
   """
   def pricing do
-    Req.post!(req(), url: "/pricing/get", json: %{})
+    case Req.post!(req(), url: "/pricing/get", json: %{}) do
+      %{body: %{"status" => "SUCCESS", "pricing" => pricing}} ->
+        {:ok, pricing}
+
+      %{body: %{"status" => status, "message" => message}} ->
+        {:error, "#{status}: #{message}"}
+
+      other ->
+        {:error, "Unexpected response: #{inspect(other)}"}
+    end
   end
 
   @doc """
