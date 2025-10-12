@@ -20,22 +20,13 @@ jobs:
     uses: ./.github/workflows/ci.yml
     secrets: inherit
 
-  publish:
-    name: 📦 Publish
+  publish_to_hex:
+    name: 📦 Publish [Hex]
     runs-on: ubuntu-latest
     needs: [ci]
     steps:
-    - name: Check for apm.exs
-      id: check_apm
-      run: |
-        if [ -f "apm.exs" ]; then
-          echo "exists=true" >> $GITHUB_OUTPUT
-        else
-          echo "exists=false" >> $GITHUB_OUTPUT
-        fi
     - name: 💧 Elixir
       uses: aumegroup/setup-elixir@master
-
       with:
         hex-ci-auth-key: ${{ secrets.HEX_APM_KEY }}
     - name: 🔧 Compile
@@ -52,7 +43,7 @@ jobs:
 
     - name: 🧑‍⚕️ Build Docs
       run: mix docs
-    - name: 📃 Deploy Docs [GH Page]
+    - name: 📃 Deploy Docs
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

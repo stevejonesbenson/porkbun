@@ -6,9 +6,9 @@
 </p>
 
 <p align="center">
-  <em><strong><small>Porkbun // </small></strong></em><br/>
-  乾史蒂夫和朋友<br/>
-  <em><strong><small>Elixir client for the Porkbun API<br/></small></strong></em>
+  <em><strong>Porkbun // </strong></em><br/>
+  乾史蒂夫和朋友 //<br/>
+  <em><strong>Elixir client for the Porkbun API //</strong></em><br/>
 </p>
 
 <p align="center">
@@ -22,12 +22,12 @@
 
 <p align="center">
   <a href="https://github.com/stevejonesbenson/porkbun/tree/master">
-  <img alt="GitHub"  src="https://img.shields.io/badge/package-0.1.2--dev-FFD21E?logo=github&logoColor=white" >
+  <img alt="GitHub"  src="https://img.shields.io/badge/package-0.1.0--dev-FFD21E?logo=github&logoColor=white" >
 </a>
 <a href="https://stevejonesbenson.github.io/porkbun/">
-  <img alt="GitHub Pages Docs"  src="https://img.shields.io/badge/docs-0.1.2--dev-FFD21E?logo=github&logoColor=white" >
+  <img alt="GitHub Pages Docs"  src="https://img.shields.io/badge/docs-0.1.0--dev-FFD21E?logo=github&logoColor=white" >
 </a>
-<a href="https://github.com/stevejonesbenson/porkbun">
+<br /><a href="https://github.com/stevejonesbenson/porkbun">
   <img alt="GitHub" src="https://img.shields.io/badge/stevejonesbenson-porkbun-fbf5f3.svg?logo=github" >
 </a>
  <img alt="Type Library" src="https://img.shields.io/badge/apm-Library-ff6188.svg?logo=bugatti" >
@@ -63,6 +63,6 @@
 
 Add the package to your deps.
 
-    {porkbun, "~> 0.1.2-dev"}
+    {porkbun, "~> 0.1.0-dev"}
 
 <!-- INSTALL -->
