@@ -5,7 +5,7 @@ defmodule Porkbun.MixProject do
     [
       name: "Porkbun",
       description: "Elixir client for the Porkbun API",
-      version: "0.1.1",
+      version: "0.1.2",
       type: :library,
       visibility: :public,
       start_permanent: Mix.env() == :prod,
