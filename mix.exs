@@ -44,7 +44,7 @@ defmodule Porkbun.MixProject do
 
   def package do
     [
-      licenses: ["MIT"],
+      licenses: ["Apache-2.0"],
       maintainers: ["Stevejones Benson"],
       files: ~w(lib .formatter.exs mix.exs README.md CHANGELOG.md ),
       organization: "hexpm"
