@@ -35,3 +35,5 @@ devenv.local.nix
 
 .lexical
 mix.lock
+
+.apm_release.tmp
