@@ -57,6 +57,10 @@
 
 ## Contributions
 
+This repo currently relies on a custom build tool so I advise against contributions at this time.
+
+If you feel compelled to contribute, upon cloning this repo you will notice the `mix.exs` is invalid. You can acquire a working `mix.exs` file from [hex](https://preview.hex.pm/preview/porkbun/show/mix.exs) but please do not include this in your PR.
+
 <!-- INSTALL -->
 
 ## Installation
